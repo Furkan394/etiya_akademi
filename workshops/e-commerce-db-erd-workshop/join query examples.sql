@@ -15,22 +15,22 @@ from addresses a
 
 /* Sipariş sorgusu */
 
-select pt.name        as   "Ödeme Yöntemi",
-       d.name         as   "Teslimat Seçeneği",
-       i.number       as   "Fatura Numarası",
-       i.created_date as   "Fatura Oluşturma Tarihi",
-       pr.name        as   "Ürün Adı",
-       pr.unit_price  as   "Ürün Fiyatı",
-       pr.stock       as   "Ürün Stok Bilgisi",
-       oi.quantity    as   "Ürün Adedi",
-       oi.item_total_price "Ürün Toplam Fiyatı",
-       ad.title       as   "Adres Başlığı",
-       ad.address     as   "Açık Adres",
-       s.name         as   "Sokak",
-       d.name         as   "Mahalle",
-       t.name         as   "İlçe",
-       ci.name        as   "Şehir",
-       co.name        as   "Ülke"
+select pt.name             as "Ödeme Yöntemi",
+       d.name              as "Teslimat Seçeneği",
+       i.number            as "Fatura Numarası",
+       i.created_date      as "Fatura Oluşturma Tarihi",
+       pr.name             as "Ürün Adı",
+       pr.unit_price       as "Ürün Fiyatı",
+       pr.stock            as "Ürün Stok Bilgisi",
+       oi.quantity         as "Ürün Adedi",
+       oi.item_total_price as "Ürün Toplam Fiyatı",
+       ad.title            as "Adres Başlığı",
+       ad.address          as "Açık Adres",
+       s.name              as "Sokak",
+       di.name             as "Mahalle",
+       t.name              as "İlçe",
+       ci.name             as "Şehir",
+       co.name             as "Ülke"
 from orders o
          inner join payments p
                     on o.id = p.id
