@@ -1,5 +1,4 @@
-/* Adres sorgusu */
-
+/* 1- Adres sorgusu */
 select title, address, s.name, d.name, t.name, ci.name, co.name
 from addresses a
          inner join streets s
@@ -13,7 +12,7 @@ from addresses a
          inner join countries co
                     on ci.country_id = co.id
 
-/* Sipariş sorgusu */
+/* 2- Sipariş sorgusu */
 
 select pt.name             as "Ödeme Yöntemi",
        d.name              as "Teslimat Seçeneği",
@@ -59,7 +58,7 @@ from orders o
          inner join countries co
                     on ci.country_id = co.id
 
-/* Ürün Özellikleri Sorgusu */
+/* 3- Ürün Özellikleri Sorgusu */
 
 select p.name        as "Ürün Adı",
        p.unit_price  as "Ürün Fiyatı",
@@ -78,3 +77,109 @@ from product_categories pc
                     on pd.product_char_id = pch.id
          inner join product_char_values pcv
                     on pch.id = pcv.product_char_id
+
+/* 4- Bireysel Müşteriler Sorgusu */
+select ic.first_name,
+       ic.last_name,
+       ic.identity_number,
+       cu.number,
+       us.email,
+       us.password
+from individual_customers ic
+         inner join customers cu
+                    on ic.id = cu.id
+         inner join users us
+                    on cu.id = us.id
+
+/* 5- Müşterilerin İsmine Göre Sorgu */
+select ic.first_name, ic.last_name, ic.identity_number, cu.number, us.email, us.password
+from individual_customers ic
+         inner join customers cu
+                    on ic.id = cu.id
+         inner join users us
+                    on cu.id = us.id
+where ic.first_name = 'Onur'
+
+/* 6- Ödeme yapan kişilerden adı Emre olan ve Ödeme Yöntemi Kredi Kartı Olan Sorgular */
+select ic.first_name, ic.last_name, pt.name
+from payments py
+         inner join payment_types pt
+                    on py.payment_type_id = pt.id
+         inner join orders od
+                    on py.id = od.id
+         inner join addresses ad
+                    on od.invoice_address_id = ad.id
+         inner join users us
+                    on ad.user_id = us.id
+         inner join customers cu
+                    on us.id = cu.id
+         inner join individual_customers ic
+                    on cu.id = ic.id
+where ic.first_name = 'Emre'
+  and pt.name = 'Kredi Kartı'
+
+/* 7- İstanbul'dan sipariş veren müşteri listesi */
+select ic.first_name, ic.last_name, ci.name
+from orders od
+         inner join payments py
+                    on od.id = py.id
+         inner join addresses ad
+                    on od.invoice_address_id = ad.id
+         inner join users us
+                    on ad.user_id = us.id
+         inner join customers cu
+                    on us.id = cu.id
+         inner join individual_customers ic
+                    on cu.id = ic.id
+         inner join streets st
+                    on ad.street_id = st.id
+         inner join districts di
+                    on st.district_id = di.id
+         inner join towns tw
+                    on di.town_id = tw.id
+         inner join cities ci
+                    on tw.city_id = ci.id
+where ci.name = 'İstanbul'
+  and py.is_verified = true
+
+/* 8- Siparişlerden teslimat seçeneği "Adrese teslim" olan müşteri listesi */
+select ic.first_name, ic.last_name, de.name
+from orders od
+         inner join delivery_options de
+                    on od.delivery_options_id = de.id
+         inner join addresses ad
+                    on od.invoice_address_id = ad.id
+         inner join users us
+                    on ad.user_id = us.id
+         inner join customers cu
+                    on us.id = cu.id
+         inner join individual_customers ic
+                    on cu.id = ic.id
+where de.name = 'Adrese teslim'
+
+/* 9- Giyim kategorisindeki ürünler listesi */
+select pr.name
+from products pr
+         inner join product_categories pc
+                    on pr.id = pc.product_id
+         inner join categories ca
+                    on ca.id = pc.category_id
+where ca.id = 3
+
+/* 10- Sepetteki en yüksek ücretli ürün  */
+select max(pr.unit_price), pr.name
+from baskets ba
+         inner join basket_items bi
+                    on ba.id = bi.basket_id
+         inner join products pr
+                    on bi.product_id = pr.id
+group by pr.name
+
+
+
+
+
+
+
+
+
