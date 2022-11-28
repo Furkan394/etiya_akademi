@@ -175,7 +175,87 @@ from baskets ba
                     on bi.product_id = pr.id
 group by pr.name
 
+-- İstanbul ve Ankara'da yaşayan müşterileri listeleyin
 
+select ci.name as "Şehir", ic.first_name, ic.last_name
+from individual_customers ic
+         inner join customers c
+                    on ic.id = c.id
+         inner join users us
+                    on c.id = us.id
+         inner join addresses ad
+                    on ad.user_id = us.id
+         inner join streets st
+                    on ad.street_id = st.id
+         inner join districts di
+                    on st.district_id = di.id
+         inner join towns t
+                    on di.town_id = t.id
+         inner join cities ci
+                    on t.city_id = ci.id
+where ci.name in ('Ankara', 'İstanbul')
+
+-- 50 TL ve 200 TL arasında bulunan ürünlerin adları ve fiyatlarını listeleyiniz
+select name, unit_price
+from products
+where unit_price between 50 and 200
+
+-- Hangi şehirden kaç müşteri var?
+select ci.name as "Şehir", count(*) "Müşteri Sayısı"
+from cities ci
+         inner join towns tw
+                    on ci.id = tw.city_id
+         inner join districts di
+                    on tw.id = di.town_id
+         inner join streets st
+                    on di.id = st.district_id
+         inner join addresses ad
+                    on st.id = ad.street_id
+         inner join users us
+                    on us.id = ad.user_id
+         inner join customers cu
+                    on us.id = cu.id
+group by ci.name
+
+-- Siparişlerin ortalama fiyatı
+select avg(total_price)
+from orders
+
+-- Ürün fiyatı güncelleme
+update products
+set unit_price = 18000
+where name = 'Hp Laptop'
+
+-- Insert işlemi
+    insert
+into delivery_options(name)
+values ('Teslimat Noktası')
+select *
+from delivery_options
+
+-- Delete işlemi
+delete
+from delivery_options
+where name = 'İş Yeri'
+
+-- Hangi ürün hangi kategoride
+select p.name, c.name
+from product_categories pc
+         inner join products p
+                    on pc.product_id = p.id
+         inner join categories c
+                    on pc.category_id = c.id
+group by p.name, c.name
+
+-- Şehir sıralaması
+Select name
+from cities
+where name between 'A' and 'E'
+order by name
+
+-- Sepetler içindeki kargo ücretleri toplamı
+select sum(shipping_price)
+from baskets
 
 
 
