@@ -8,7 +8,7 @@ inner join categories c
 on pc.category_id = c.id
 ```
 
-![Inner Join](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/inner%20join.PNG)
+![Inner Join](images/inner%20join.PNG)
 
 ### ⚡ Left Join
 
@@ -18,7 +18,7 @@ left join product_char_values pcv
 on pc.id = pcv.product_char_id
 ```
 
-![Left Join](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/left%20join.PNG)
+![Left Join](images/left%20join.PNG)
 
 ### ⚡ Right Join
 
@@ -28,7 +28,7 @@ right join product_char_values pcv
 on pc.id = pcv.product_char_id
 ```
 
-![Right Join](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/right%20join.PNG)
+![Right Join](images/right%20join.PNG)
 
 ### ⚡ Full Outer Join
 
@@ -40,18 +40,18 @@ full outer join products p
 on bi.product_id = p.id
 ```
 
-![Full Outer Join](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/full%20outer.PNG)
+![Full Outer Join](images/full%20outer.PNG)
 
 ### ⚡ Insert
 
-![Products](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/products.PNG)
+![Products](images/products.PNG)
 
 ```
 insert into products(name, stock, description, image_url, unit_price) 
 values ('Sweatshirt', 35 , 'Kapşonlu renkli sweatshirt', 'ornek_resim_url', 300)
 ```
 
-![Inserted_Product](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/insert%20product.PNG)
+![Inserted_Product](images/insert%20product.PNG)
 
 ### ⚡ Update
 
@@ -59,7 +59,7 @@ values ('Sweatshirt', 35 , 'Kapşonlu renkli sweatshirt', 'ornek_resim_url', 300
 update products set unit_price = 270 where name = 'Sweatshirt'
 ```
 
-![Updated_Product](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/update%20product.PNG)
+![Updated_Product](images/update%20product.PNG)
 
 ### ⚡ In
 
@@ -83,7 +83,7 @@ from individual_customers ic
 where ci.name in ('Ankara', 'İstanbul')
 ```
 
-![In](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/city%20in.PNG)
+![In](images/city%20in.PNG)
 
 ### ⚡ Between
 
@@ -93,7 +93,7 @@ from products
 where unit_price between 50 and 200
 ```
 
-![Between](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/between.PNG)
+![Between](images/between.PNG)
 
 ### ⚡ Group By
 
@@ -115,5 +115,5 @@ from cities ci
 group by ci.name
 ```
 
-![Group By](https://github.com/Furkan394/etiya_akademi/blob/master/workshops/e-commerce-db-workshop/images/group%20by%20city.PNG)
+![Group By](images/group%20by%20city.PNG)
 
