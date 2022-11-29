@@ -5,7 +5,7 @@
 -- Dumped from database version 15.1
 -- Dumped by pg_dump version 15.1
 
--- Started on 2022-11-28 13:52:03
+-- Started on 2022-11-29 11:06:53
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -54,7 +54,7 @@ ALTER TABLE public.addresses ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 246 (class 1259 OID 16798)
+-- TOC entry 245 (class 1259 OID 16798)
 -- Name: basket_items; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -70,7 +70,7 @@ CREATE TABLE public.basket_items (
 ALTER TABLE public.basket_items OWNER TO postgres;
 
 --
--- TOC entry 245 (class 1259 OID 16797)
+-- TOC entry 244 (class 1259 OID 16797)
 -- Name: basket_items_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -85,7 +85,7 @@ ALTER TABLE public.basket_items ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
 
 
 --
--- TOC entry 244 (class 1259 OID 16787)
+-- TOC entry 243 (class 1259 OID 16787)
 -- Name: baskets; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -142,7 +142,7 @@ CREATE TABLE public.cities (
 ALTER TABLE public.cities OWNER TO postgres;
 
 --
--- TOC entry 257 (class 1259 OID 16893)
+-- TOC entry 256 (class 1259 OID 16893)
 -- Name: cities_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -157,7 +157,7 @@ ALTER TABLE public.cities ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 235 (class 1259 OID 16727)
+-- TOC entry 234 (class 1259 OID 16727)
 -- Name: corporate_customers; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -212,7 +212,7 @@ CREATE TABLE public.customers (
 ALTER TABLE public.customers OWNER TO postgres;
 
 --
--- TOC entry 251 (class 1259 OID 16831)
+-- TOC entry 250 (class 1259 OID 16831)
 -- Name: delivery_options; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -225,7 +225,7 @@ CREATE TABLE public.delivery_options (
 ALTER TABLE public.delivery_options OWNER TO postgres;
 
 --
--- TOC entry 250 (class 1259 OID 16830)
+-- TOC entry 249 (class 1259 OID 16830)
 -- Name: delivery_options_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -282,7 +282,7 @@ CREATE TABLE public.employees (
 ALTER TABLE public.employees OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 16716)
+-- TOC entry 259 (class 1259 OID 24589)
 -- Name: individual_customers; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -290,28 +290,29 @@ CREATE TABLE public.individual_customers (
     id integer NOT NULL,
     first_name character varying(50) NOT NULL,
     last_name character varying(50) NOT NULL,
-    identity_number character varying(25) NOT NULL
+    identity character varying(25) NOT NULL,
+    birth_date date NOT NULL
 );
 
 
 ALTER TABLE public.individual_customers OWNER TO postgres;
 
 --
--- TOC entry 256 (class 1259 OID 16878)
+-- TOC entry 255 (class 1259 OID 16878)
 -- Name: invoices; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.invoices (
     id integer NOT NULL,
     number character(25) NOT NULL,
-    created_date date NOT NULL
+    created_date date DEFAULT CURRENT_DATE NOT NULL
 );
 
 
 ALTER TABLE public.invoices OWNER TO postgres;
 
 --
--- TOC entry 255 (class 1259 OID 16858)
+-- TOC entry 254 (class 1259 OID 16858)
 -- Name: order_items; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -327,7 +328,7 @@ CREATE TABLE public.order_items (
 ALTER TABLE public.order_items OWNER TO postgres;
 
 --
--- TOC entry 254 (class 1259 OID 16857)
+-- TOC entry 253 (class 1259 OID 16857)
 -- Name: order_items_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -342,7 +343,7 @@ ALTER TABLE public.order_items ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY 
 
 
 --
--- TOC entry 253 (class 1259 OID 16837)
+-- TOC entry 252 (class 1259 OID 16837)
 -- Name: orders; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -359,7 +360,7 @@ CREATE TABLE public.orders (
 ALTER TABLE public.orders OWNER TO postgres;
 
 --
--- TOC entry 252 (class 1259 OID 16836)
+-- TOC entry 251 (class 1259 OID 16836)
 -- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -374,7 +375,7 @@ ALTER TABLE public.orders ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 248 (class 1259 OID 16814)
+-- TOC entry 247 (class 1259 OID 16814)
 -- Name: payment_types; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -387,7 +388,7 @@ CREATE TABLE public.payment_types (
 ALTER TABLE public.payment_types OWNER TO postgres;
 
 --
--- TOC entry 247 (class 1259 OID 16813)
+-- TOC entry 246 (class 1259 OID 16813)
 -- Name: payment_types_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -402,7 +403,7 @@ ALTER TABLE public.payment_types ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 249 (class 1259 OID 16820)
+-- TOC entry 248 (class 1259 OID 16820)
 -- Name: payments; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -446,7 +447,7 @@ ALTER TABLE public.phone_numbers ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 237 (class 1259 OID 16738)
+-- TOC entry 236 (class 1259 OID 16738)
 -- Name: product_categories; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -460,7 +461,7 @@ CREATE TABLE public.product_categories (
 ALTER TABLE public.product_categories OWNER TO postgres;
 
 --
--- TOC entry 236 (class 1259 OID 16737)
+-- TOC entry 235 (class 1259 OID 16737)
 -- Name: product_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -475,7 +476,7 @@ ALTER TABLE public.product_categories ALTER COLUMN id ADD GENERATED ALWAYS AS ID
 
 
 --
--- TOC entry 241 (class 1259 OID 16761)
+-- TOC entry 240 (class 1259 OID 16761)
 -- Name: product_char_values; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -489,7 +490,7 @@ CREATE TABLE public.product_char_values (
 ALTER TABLE public.product_char_values OWNER TO postgres;
 
 --
--- TOC entry 240 (class 1259 OID 16760)
+-- TOC entry 239 (class 1259 OID 16760)
 -- Name: product_char_values_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -504,7 +505,7 @@ ALTER TABLE public.product_char_values ALTER COLUMN id ADD GENERATED ALWAYS AS I
 
 
 --
--- TOC entry 239 (class 1259 OID 16754)
+-- TOC entry 238 (class 1259 OID 16754)
 -- Name: product_chars; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -518,7 +519,7 @@ CREATE TABLE public.product_chars (
 ALTER TABLE public.product_chars OWNER TO postgres;
 
 --
--- TOC entry 238 (class 1259 OID 16753)
+-- TOC entry 237 (class 1259 OID 16753)
 -- Name: product_chars_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -533,7 +534,7 @@ ALTER TABLE public.product_chars ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 243 (class 1259 OID 16772)
+-- TOC entry 242 (class 1259 OID 16772)
 -- Name: product_details; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -547,7 +548,7 @@ CREATE TABLE public.product_details (
 ALTER TABLE public.product_details OWNER TO postgres;
 
 --
--- TOC entry 242 (class 1259 OID 16771)
+-- TOC entry 241 (class 1259 OID 16771)
 -- Name: product_details_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -623,7 +624,7 @@ CREATE TABLE public.streets (
 ALTER TABLE public.streets OWNER TO postgres;
 
 --
--- TOC entry 259 (class 1259 OID 24577)
+-- TOC entry 258 (class 1259 OID 24577)
 -- Name: streets_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -681,7 +682,7 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 258 (class 1259 OID 24576)
+-- TOC entry 257 (class 1259 OID 24576)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -696,7 +697,7 @@ ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 3529 (class 0 OID 16642)
+-- TOC entry 3530 (class 0 OID 16642)
 -- Dependencies: 224
 -- Data for Name: addresses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -710,7 +711,7 @@ INSERT INTO public.addresses (id, user_id, street_id, title, address) OVERRIDING
 
 --
 -- TOC entry 3551 (class 0 OID 16798)
--- Dependencies: 246
+-- Dependencies: 245
 -- Data for Name: basket_items; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -722,7 +723,7 @@ INSERT INTO public.basket_items (id, basket_id, product_id, quantity, item_total
 
 --
 -- TOC entry 3549 (class 0 OID 16787)
--- Dependencies: 244
+-- Dependencies: 243
 -- Data for Name: baskets; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -731,7 +732,7 @@ INSERT INTO public.baskets (id, total_price, shipping_price) VALUES (2, 20265, 1
 
 
 --
--- TOC entry 3536 (class 0 OID 16688)
+-- TOC entry 3537 (class 0 OID 16688)
 -- Dependencies: 231
 -- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -746,7 +747,7 @@ INSERT INTO public.categories (id, ref_id, name) OVERRIDING SYSTEM VALUE VALUES 
 
 
 --
--- TOC entry 3521 (class 0 OID 16592)
+-- TOC entry 3522 (class 0 OID 16592)
 -- Dependencies: 216
 -- Data for Name: cities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -836,14 +837,14 @@ INSERT INTO public.cities (id, name, country_id) OVERRIDING SYSTEM VALUE VALUES 
 
 --
 -- TOC entry 3540 (class 0 OID 16727)
--- Dependencies: 235
+-- Dependencies: 234
 -- Data for Name: corporate_customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3520 (class 0 OID 16586)
+-- TOC entry 3521 (class 0 OID 16586)
 -- Dependencies: 215
 -- Data for Name: countries; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -852,7 +853,7 @@ INSERT INTO public.countries (id, name) OVERRIDING SYSTEM VALUE VALUES (1, 'Tür
 
 
 --
--- TOC entry 3532 (class 0 OID 16669)
+-- TOC entry 3533 (class 0 OID 16669)
 -- Dependencies: 227
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -866,7 +867,7 @@ INSERT INTO public.customers (id, number) VALUES (5, '215136412');
 
 --
 -- TOC entry 3556 (class 0 OID 16831)
--- Dependencies: 251
+-- Dependencies: 250
 -- Data for Name: delivery_options; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -875,7 +876,7 @@ INSERT INTO public.delivery_options (id, name) OVERRIDING SYSTEM VALUE VALUES (2
 
 
 --
--- TOC entry 3525 (class 0 OID 16614)
+-- TOC entry 3526 (class 0 OID 16614)
 -- Dependencies: 220
 -- Data for Name: districts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -889,7 +890,7 @@ INSERT INTO public.districts (id, town_id, name) OVERRIDING SYSTEM VALUE VALUES 
 
 
 --
--- TOC entry 3538 (class 0 OID 16705)
+-- TOC entry 3539 (class 0 OID 16705)
 -- Dependencies: 233
 -- Data for Name: employees; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -897,21 +898,21 @@ INSERT INTO public.districts (id, town_id, name) OVERRIDING SYSTEM VALUE VALUES 
 
 
 --
--- TOC entry 3539 (class 0 OID 16716)
--- Dependencies: 234
+-- TOC entry 3565 (class 0 OID 24589)
+-- Dependencies: 259
 -- Data for Name: individual_customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.individual_customers (id, first_name, last_name, identity_number) VALUES (1, 'Emre', 'Çakıroğlu', '11111111111');
-INSERT INTO public.individual_customers (id, first_name, last_name, identity_number) VALUES (2, 'Mert', 'Söyünmezoğlu', '21342141212');
-INSERT INTO public.individual_customers (id, first_name, last_name, identity_number) VALUES (3, 'Kadir', 'Demirel', '12312312312');
-INSERT INTO public.individual_customers (id, first_name, last_name, identity_number) VALUES (4, 'Onur', 'Uzunşimşek', '21421516313');
-INSERT INTO public.individual_customers (id, first_name, last_name, identity_number) VALUES (5, 'Zeynep', 'Han', '43632534634');
+INSERT INTO public.individual_customers (id, first_name, last_name, identity, birth_date) VALUES (1, 'Emre', 'Çakıroğlu', '11111111111', '2000-12-12');
+INSERT INTO public.individual_customers (id, first_name, last_name, identity, birth_date) VALUES (2, 'Mert', 'Söyünmezoğlu', '21342141212', '1999-10-24');
+INSERT INTO public.individual_customers (id, first_name, last_name, identity, birth_date) VALUES (3, 'Kadir', 'Demirel', '12312312312', '1998-01-07');
+INSERT INTO public.individual_customers (id, first_name, last_name, identity, birth_date) VALUES (4, 'Onur', 'Uzunşimşek', '21421516313', '1997-05-17');
+INSERT INTO public.individual_customers (id, first_name, last_name, identity, birth_date) VALUES (5, 'Zeynep', 'Han', '43632534634', '1999-07-15');
 
 
 --
 -- TOC entry 3561 (class 0 OID 16878)
--- Dependencies: 256
+-- Dependencies: 255
 -- Data for Name: invoices; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -924,7 +925,7 @@ INSERT INTO public.invoices (id, number, created_date) VALUES (7, '12312412     
 
 --
 -- TOC entry 3560 (class 0 OID 16858)
--- Dependencies: 255
+-- Dependencies: 254
 -- Data for Name: order_items; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -937,7 +938,7 @@ INSERT INTO public.order_items (id, order_id, product_id, quantity, item_total_p
 
 --
 -- TOC entry 3558 (class 0 OID 16837)
--- Dependencies: 253
+-- Dependencies: 252
 -- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -950,7 +951,7 @@ INSERT INTO public.orders (id, delivery_options_id, order_address_id, invoice_ad
 
 --
 -- TOC entry 3553 (class 0 OID 16814)
--- Dependencies: 248
+-- Dependencies: 247
 -- Data for Name: payment_types; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -961,7 +962,7 @@ INSERT INTO public.payment_types (id, name) OVERRIDING SYSTEM VALUE VALUES (3, '
 
 --
 -- TOC entry 3554 (class 0 OID 16820)
--- Dependencies: 249
+-- Dependencies: 248
 -- Data for Name: payments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -973,7 +974,7 @@ INSERT INTO public.payments (id, payment_type_id, is_verified) VALUES (7, 3, tru
 
 
 --
--- TOC entry 3531 (class 0 OID 16658)
+-- TOC entry 3532 (class 0 OID 16658)
 -- Dependencies: 226
 -- Data for Name: phone_numbers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -983,7 +984,7 @@ INSERT INTO public.phone_numbers (id, user_id, number, title) OVERRIDING SYSTEM 
 
 --
 -- TOC entry 3542 (class 0 OID 16738)
--- Dependencies: 237
+-- Dependencies: 236
 -- Data for Name: product_categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -995,7 +996,7 @@ INSERT INTO public.product_categories (id, product_id, category_id) OVERRIDING S
 
 --
 -- TOC entry 3546 (class 0 OID 16761)
--- Dependencies: 241
+-- Dependencies: 240
 -- Data for Name: product_char_values; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1013,7 +1014,7 @@ INSERT INTO public.product_char_values (id, name, product_char_id) OVERRIDING SY
 
 --
 -- TOC entry 3544 (class 0 OID 16754)
--- Dependencies: 239
+-- Dependencies: 238
 -- Data for Name: product_chars; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1026,7 +1027,7 @@ INSERT INTO public.product_chars (id, name, description) OVERRIDING SYSTEM VALUE
 
 --
 -- TOC entry 3548 (class 0 OID 16772)
--- Dependencies: 243
+-- Dependencies: 242
 -- Data for Name: product_details; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1037,7 +1038,7 @@ INSERT INTO public.product_details (id, product_id, product_char_id) OVERRIDING 
 
 
 --
--- TOC entry 3534 (class 0 OID 16680)
+-- TOC entry 3535 (class 0 OID 16680)
 -- Dependencies: 229
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1051,7 +1052,7 @@ INSERT INTO public.products (id, name, stock, description, image_url, unit_price
 
 
 --
--- TOC entry 3537 (class 0 OID 16694)
+-- TOC entry 3538 (class 0 OID 16694)
 -- Dependencies: 232
 -- Data for Name: sellers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1059,7 +1060,7 @@ INSERT INTO public.products (id, name, stock, description, image_url, unit_price
 
 
 --
--- TOC entry 3526 (class 0 OID 16625)
+-- TOC entry 3527 (class 0 OID 16625)
 -- Dependencies: 221
 -- Data for Name: streets; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1073,7 +1074,7 @@ INSERT INTO public.streets (id, district_id, name) OVERRIDING SYSTEM VALUE VALUE
 
 
 --
--- TOC entry 3523 (class 0 OID 16603)
+-- TOC entry 3524 (class 0 OID 16603)
 -- Dependencies: 218
 -- Data for Name: towns; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1087,7 +1088,7 @@ INSERT INTO public.towns (id, city_id, name) OVERRIDING SYSTEM VALUE VALUES (6, 
 
 
 --
--- TOC entry 3527 (class 0 OID 16636)
+-- TOC entry 3528 (class 0 OID 16636)
 -- Dependencies: 222
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1100,7 +1101,7 @@ INSERT INTO public.users (id, email, password) OVERRIDING SYSTEM VALUE VALUES (5
 
 
 --
--- TOC entry 3570 (class 0 OID 0)
+-- TOC entry 3571 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: addresses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1109,8 +1110,8 @@ SELECT pg_catalog.setval('public.addresses_id_seq', 10, true);
 
 
 --
--- TOC entry 3571 (class 0 OID 0)
--- Dependencies: 245
+-- TOC entry 3572 (class 0 OID 0)
+-- Dependencies: 244
 -- Name: basket_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1118,7 +1119,7 @@ SELECT pg_catalog.setval('public.basket_items_id_seq', 6, true);
 
 
 --
--- TOC entry 3572 (class 0 OID 0)
+-- TOC entry 3573 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1127,8 +1128,8 @@ SELECT pg_catalog.setval('public.categories_id_seq', 7, true);
 
 
 --
--- TOC entry 3573 (class 0 OID 0)
--- Dependencies: 257
+-- TOC entry 3574 (class 0 OID 0)
+-- Dependencies: 256
 -- Name: cities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1136,7 +1137,7 @@ SELECT pg_catalog.setval('public.cities_id_seq', 1, false);
 
 
 --
--- TOC entry 3574 (class 0 OID 0)
+-- TOC entry 3575 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: countries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1145,8 +1146,8 @@ SELECT pg_catalog.setval('public.countries_id_seq', 1, true);
 
 
 --
--- TOC entry 3575 (class 0 OID 0)
--- Dependencies: 250
+-- TOC entry 3576 (class 0 OID 0)
+-- Dependencies: 249
 -- Name: delivery_options_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1154,7 +1155,7 @@ SELECT pg_catalog.setval('public.delivery_options_id_seq', 3, true);
 
 
 --
--- TOC entry 3576 (class 0 OID 0)
+-- TOC entry 3577 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: districts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1163,8 +1164,8 @@ SELECT pg_catalog.setval('public.districts_id_seq', 6, true);
 
 
 --
--- TOC entry 3577 (class 0 OID 0)
--- Dependencies: 254
+-- TOC entry 3578 (class 0 OID 0)
+-- Dependencies: 253
 -- Name: order_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1172,8 +1173,8 @@ SELECT pg_catalog.setval('public.order_items_id_seq', 11, true);
 
 
 --
--- TOC entry 3578 (class 0 OID 0)
--- Dependencies: 252
+-- TOC entry 3579 (class 0 OID 0)
+-- Dependencies: 251
 -- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1181,8 +1182,8 @@ SELECT pg_catalog.setval('public.orders_id_seq', 7, true);
 
 
 --
--- TOC entry 3579 (class 0 OID 0)
--- Dependencies: 247
+-- TOC entry 3580 (class 0 OID 0)
+-- Dependencies: 246
 -- Name: payment_types_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1190,7 +1191,7 @@ SELECT pg_catalog.setval('public.payment_types_id_seq', 3, true);
 
 
 --
--- TOC entry 3580 (class 0 OID 0)
+-- TOC entry 3581 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: phone_numbers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1199,8 +1200,8 @@ SELECT pg_catalog.setval('public.phone_numbers_id_seq', 1, true);
 
 
 --
--- TOC entry 3581 (class 0 OID 0)
--- Dependencies: 236
+-- TOC entry 3582 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: product_categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1208,8 +1209,8 @@ SELECT pg_catalog.setval('public.product_categories_id_seq', 5, true);
 
 
 --
--- TOC entry 3582 (class 0 OID 0)
--- Dependencies: 240
+-- TOC entry 3583 (class 0 OID 0)
+-- Dependencies: 239
 -- Name: product_char_values_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1217,8 +1218,8 @@ SELECT pg_catalog.setval('public.product_char_values_id_seq', 13, true);
 
 
 --
--- TOC entry 3583 (class 0 OID 0)
--- Dependencies: 238
+-- TOC entry 3584 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: product_chars_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1226,8 +1227,8 @@ SELECT pg_catalog.setval('public.product_chars_id_seq', 6, true);
 
 
 --
--- TOC entry 3584 (class 0 OID 0)
--- Dependencies: 242
+-- TOC entry 3585 (class 0 OID 0)
+-- Dependencies: 241
 -- Name: product_details_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1235,7 +1236,7 @@ SELECT pg_catalog.setval('public.product_details_id_seq', 6, true);
 
 
 --
--- TOC entry 3585 (class 0 OID 0)
+-- TOC entry 3586 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1244,8 +1245,8 @@ SELECT pg_catalog.setval('public.products_id_seq', 6, true);
 
 
 --
--- TOC entry 3586 (class 0 OID 0)
--- Dependencies: 259
+-- TOC entry 3587 (class 0 OID 0)
+-- Dependencies: 258
 -- Name: streets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1253,7 +1254,7 @@ SELECT pg_catalog.setval('public.streets_id_seq', 1, false);
 
 
 --
--- TOC entry 3587 (class 0 OID 0)
+-- TOC entry 3588 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: towns_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1262,8 +1263,8 @@ SELECT pg_catalog.setval('public.towns_id_seq', 6, true);
 
 
 --
--- TOC entry 3588 (class 0 OID 0)
--- Dependencies: 258
+-- TOC entry 3589 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1271,7 +1272,7 @@ SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 
 --
--- TOC entry 3308 (class 2606 OID 16646)
+-- TOC entry 3309 (class 2606 OID 16646)
 -- Name: addresses addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1280,7 +1281,7 @@ ALTER TABLE ONLY public.addresses
 
 
 --
--- TOC entry 3336 (class 2606 OID 16802)
+-- TOC entry 3335 (class 2606 OID 16802)
 -- Name: basket_items basket_items_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1289,7 +1290,7 @@ ALTER TABLE ONLY public.basket_items
 
 
 --
--- TOC entry 3334 (class 2606 OID 16791)
+-- TOC entry 3333 (class 2606 OID 16791)
 -- Name: baskets baskets_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1298,7 +1299,7 @@ ALTER TABLE ONLY public.baskets
 
 
 --
--- TOC entry 3316 (class 2606 OID 16692)
+-- TOC entry 3317 (class 2606 OID 16692)
 -- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1307,7 +1308,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- TOC entry 3298 (class 2606 OID 16596)
+-- TOC entry 3299 (class 2606 OID 16596)
 -- Name: cities cities_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1316,7 +1317,7 @@ ALTER TABLE ONLY public.cities
 
 
 --
--- TOC entry 3324 (class 2606 OID 16731)
+-- TOC entry 3323 (class 2606 OID 16731)
 -- Name: corporate_customers corporate_customers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1325,7 +1326,7 @@ ALTER TABLE ONLY public.corporate_customers
 
 
 --
--- TOC entry 3296 (class 2606 OID 16590)
+-- TOC entry 3297 (class 2606 OID 16590)
 -- Name: countries countries_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1334,7 +1335,7 @@ ALTER TABLE ONLY public.countries
 
 
 --
--- TOC entry 3312 (class 2606 OID 16673)
+-- TOC entry 3313 (class 2606 OID 16673)
 -- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1343,7 +1344,7 @@ ALTER TABLE ONLY public.customers
 
 
 --
--- TOC entry 3342 (class 2606 OID 16835)
+-- TOC entry 3341 (class 2606 OID 16835)
 -- Name: delivery_options delivery_options_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1352,7 +1353,7 @@ ALTER TABLE ONLY public.delivery_options
 
 
 --
--- TOC entry 3302 (class 2606 OID 16618)
+-- TOC entry 3303 (class 2606 OID 16618)
 -- Name: districts districts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1361,7 +1362,7 @@ ALTER TABLE ONLY public.districts
 
 
 --
--- TOC entry 3320 (class 2606 OID 16709)
+-- TOC entry 3321 (class 2606 OID 16709)
 -- Name: employees employees_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1370,16 +1371,16 @@ ALTER TABLE ONLY public.employees
 
 
 --
--- TOC entry 3322 (class 2606 OID 16720)
+-- TOC entry 3349 (class 2606 OID 24598)
 -- Name: individual_customers individual_customers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.individual_customers
-    ADD CONSTRAINT individual_customers_pkey PRIMARY KEY (identity_number);
+    ADD CONSTRAINT individual_customers_pkey PRIMARY KEY (id);
 
 
 --
--- TOC entry 3348 (class 2606 OID 16882)
+-- TOC entry 3347 (class 2606 OID 16882)
 -- Name: invoices invoices_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1388,7 +1389,7 @@ ALTER TABLE ONLY public.invoices
 
 
 --
--- TOC entry 3346 (class 2606 OID 16862)
+-- TOC entry 3345 (class 2606 OID 16862)
 -- Name: order_items order_items_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1397,7 +1398,7 @@ ALTER TABLE ONLY public.order_items
 
 
 --
--- TOC entry 3344 (class 2606 OID 16841)
+-- TOC entry 3343 (class 2606 OID 16841)
 -- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1406,7 +1407,7 @@ ALTER TABLE ONLY public.orders
 
 
 --
--- TOC entry 3338 (class 2606 OID 16818)
+-- TOC entry 3337 (class 2606 OID 16818)
 -- Name: payment_types payment_types_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1415,7 +1416,7 @@ ALTER TABLE ONLY public.payment_types
 
 
 --
--- TOC entry 3340 (class 2606 OID 16824)
+-- TOC entry 3339 (class 2606 OID 16824)
 -- Name: payments payments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1424,7 +1425,7 @@ ALTER TABLE ONLY public.payments
 
 
 --
--- TOC entry 3310 (class 2606 OID 16662)
+-- TOC entry 3311 (class 2606 OID 16662)
 -- Name: phone_numbers phone_numbers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1433,7 +1434,7 @@ ALTER TABLE ONLY public.phone_numbers
 
 
 --
--- TOC entry 3326 (class 2606 OID 16742)
+-- TOC entry 3325 (class 2606 OID 16742)
 -- Name: product_categories product_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1442,7 +1443,7 @@ ALTER TABLE ONLY public.product_categories
 
 
 --
--- TOC entry 3330 (class 2606 OID 16765)
+-- TOC entry 3329 (class 2606 OID 16765)
 -- Name: product_char_values product_char_values_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1451,7 +1452,7 @@ ALTER TABLE ONLY public.product_char_values
 
 
 --
--- TOC entry 3328 (class 2606 OID 16758)
+-- TOC entry 3327 (class 2606 OID 16758)
 -- Name: product_chars product_chars_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1460,7 +1461,7 @@ ALTER TABLE ONLY public.product_chars
 
 
 --
--- TOC entry 3332 (class 2606 OID 16776)
+-- TOC entry 3331 (class 2606 OID 16776)
 -- Name: product_details product_details_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1469,7 +1470,7 @@ ALTER TABLE ONLY public.product_details
 
 
 --
--- TOC entry 3314 (class 2606 OID 16686)
+-- TOC entry 3315 (class 2606 OID 16686)
 -- Name: products products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1478,7 +1479,7 @@ ALTER TABLE ONLY public.products
 
 
 --
--- TOC entry 3318 (class 2606 OID 16698)
+-- TOC entry 3319 (class 2606 OID 16698)
 -- Name: sellers sellers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1487,7 +1488,7 @@ ALTER TABLE ONLY public.sellers
 
 
 --
--- TOC entry 3304 (class 2606 OID 16629)
+-- TOC entry 3305 (class 2606 OID 16629)
 -- Name: streets streets_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1496,7 +1497,7 @@ ALTER TABLE ONLY public.streets
 
 
 --
--- TOC entry 3300 (class 2606 OID 16607)
+-- TOC entry 3301 (class 2606 OID 16607)
 -- Name: towns towns_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1505,7 +1506,7 @@ ALTER TABLE ONLY public.towns
 
 
 --
--- TOC entry 3306 (class 2606 OID 16640)
+-- TOC entry 3307 (class 2606 OID 16640)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1541,7 +1542,7 @@ ALTER TABLE ONLY public.product_categories
 
 
 --
--- TOC entry 3350 (class 2606 OID 16608)
+-- TOC entry 3351 (class 2606 OID 16608)
 -- Name: towns city_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1559,7 +1560,7 @@ ALTER TABLE ONLY public.corporate_customers
 
 
 --
--- TOC entry 3349 (class 2606 OID 16888)
+-- TOC entry 3350 (class 2606 OID 16888)
 -- Name: cities country_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1568,7 +1569,7 @@ ALTER TABLE ONLY public.cities
 
 
 --
--- TOC entry 3356 (class 2606 OID 16674)
+-- TOC entry 3357 (class 2606 OID 16674)
 -- Name: customers customer_user; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1586,7 +1587,7 @@ ALTER TABLE ONLY public.orders
 
 
 --
--- TOC entry 3352 (class 2606 OID 16630)
+-- TOC entry 3353 (class 2606 OID 16630)
 -- Name: streets district_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1595,7 +1596,7 @@ ALTER TABLE ONLY public.streets
 
 
 --
--- TOC entry 3358 (class 2606 OID 16710)
+-- TOC entry 3359 (class 2606 OID 16710)
 -- Name: employees employee_user; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1604,12 +1605,12 @@ ALTER TABLE ONLY public.employees
 
 
 --
--- TOC entry 3359 (class 2606 OID 16721)
--- Name: individual_customers individual_customer_customers; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 3377 (class 2606 OID 24592)
+-- Name: individual_customers individual_customers_customers; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.individual_customers
-    ADD CONSTRAINT individual_customer_customers FOREIGN KEY (id) REFERENCES public.customers(id);
+    ADD CONSTRAINT individual_customers_customers FOREIGN KEY (id) REFERENCES public.customers(id);
 
 
 --
@@ -1721,7 +1722,7 @@ ALTER TABLE ONLY public.order_items
 
 
 --
--- TOC entry 3357 (class 2606 OID 16699)
+-- TOC entry 3358 (class 2606 OID 16699)
 -- Name: sellers seller_user; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1730,7 +1731,7 @@ ALTER TABLE ONLY public.sellers
 
 
 --
--- TOC entry 3353 (class 2606 OID 16652)
+-- TOC entry 3354 (class 2606 OID 16652)
 -- Name: addresses street_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1739,7 +1740,7 @@ ALTER TABLE ONLY public.addresses
 
 
 --
--- TOC entry 3351 (class 2606 OID 16619)
+-- TOC entry 3352 (class 2606 OID 16619)
 -- Name: districts town_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1748,7 +1749,7 @@ ALTER TABLE ONLY public.districts
 
 
 --
--- TOC entry 3354 (class 2606 OID 16647)
+-- TOC entry 3355 (class 2606 OID 16647)
 -- Name: addresses user_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1757,7 +1758,7 @@ ALTER TABLE ONLY public.addresses
 
 
 --
--- TOC entry 3355 (class 2606 OID 16663)
+-- TOC entry 3356 (class 2606 OID 16663)
 -- Name: phone_numbers user_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1765,7 +1766,7 @@ ALTER TABLE ONLY public.phone_numbers
     ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
--- Completed on 2022-11-28 13:52:03
+-- Completed on 2022-11-29 11:06:53
 
 --
 -- PostgreSQL database dump complete
